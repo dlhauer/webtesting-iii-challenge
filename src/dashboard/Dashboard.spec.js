@@ -33,4 +33,5 @@ test('buttons text changes to reflect the state the door will be in if clicked' 
   const openButton = getByText(/open gate/i);
   fireEvent.click(openButton);
   getByText(/close gate/i);
-})
+});
+

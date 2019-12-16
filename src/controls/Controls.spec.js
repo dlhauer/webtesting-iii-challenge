@@ -12,15 +12,8 @@ test('provides buttons to toggle the closed and locked states', () => {
   getByText(/open gate/i);
 })
 
-// test('buttons text changes to reflect the state the door will be in if clicked' , () => {
-//   const closedSpy = jest.fn();
-//   const lockedSpy = jest.fn();
-  
-//   const { getByText, rerender} = render(<Controls locked={false} closed={false} toggleClosed={closedSpy} toggleLocked={lockedSpy}/>)
-  
-//   const closeButton = getByText(/close gate/i);
-//   fireEvent.click(closeButton)
-//   getByText(/open gate/i);
-// })
-
-// test( 'the closed toggle button is disabled if the gate is locked', ())
+test('the open toggle button is disabled if the gate is locked', () => {
+  const { getByText } = render(<Controls locked={true} closed={true}/>)
+  const openButton = getByText(/open gate/i);
+  expect(openButton.hasAttribute('disabled')).toBe(true);
+})
