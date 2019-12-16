@@ -16,10 +16,7 @@ test('Dashboard shows Controls and Display', () => {
 })
 
 test('buttons text changes to reflect the state the door will be in if clicked' , () => {
-  const closedSpy = jest.fn();
-  const lockedSpy = jest.fn();
-  
-  const { getByText, rerender} = render(<Dashboard />)
+  const { getByText } = render(<Dashboard />)
   
   const closeButton = getByText(/close gate/i);
   fireEvent.click(closeButton);

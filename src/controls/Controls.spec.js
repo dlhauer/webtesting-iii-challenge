@@ -23,3 +23,12 @@ test('the locked toggle button is disabled if the gate is open', () => {
   const lockButton = getByText(/lock gate/i);
   expect(lockButton.hasAttribute('disabled')).toBe(true);
 })
+
+
+//Isn't this already covered by other tests?
+test('cannot be closed or opened if it is locked', () => {
+  const { getByText, queryByText } = render(<Controls closed={true} locked={true} />)
+  // expect(queryByText(/open gate/i)).toBe(null);
+  const openButton = getByText(/open gate/i);
+  // expect(queryByText(/^close gate$/i)).toBe(null);
+})
