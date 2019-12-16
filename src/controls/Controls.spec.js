@@ -17,3 +17,9 @@ test('the open toggle button is disabled if the gate is locked', () => {
   const openButton = getByText(/open gate/i);
   expect(openButton.hasAttribute('disabled')).toBe(true);
 })
+
+test('the locked toggle button is disabled if the gate is open', () => {
+  const { getByText } = render(<Controls locked={false} closed={false}/>)
+  const lockButton = getByText(/lock gate/i);
+  expect(lockButton.hasAttribute('disabled')).toBe(true);
+})
